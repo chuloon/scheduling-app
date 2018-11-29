@@ -1,0 +1,7 @@
+<div class="filter-section">
+  <h3>{{ section.title }}</h3>
+
+  <div class="checkbox-item" *ngFor="let item of section.items">
+    <mat-checkbox [(ngModel)]="item.checked">{{ item.name }}</mat-checkbox>
+  </div>
+</div>

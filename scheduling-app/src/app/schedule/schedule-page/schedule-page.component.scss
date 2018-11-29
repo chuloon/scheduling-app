@@ -1,0 +1,33 @@
+@import '../../../assets/sass/variables';
+
+#schedule-page-container {
+    display: flex;
+    flex-direction: row;
+
+    color: $text-color;
+
+    #sidebar-container {
+        width: 300px;
+        background-color: $background-light;
+        height: 100vh;
+        box-shadow: 1px 0px 5px 1px #111;
+        z-index: 10;
+
+        #logo {
+            width: 100px;
+            height: 100px;
+            
+            background-size: 100px 100px;
+            background-image: url(#{ $logo });
+            background-repeat: no-repeat;
+
+            margin: 15px;
+            margin-left: 30px;
+        }
+    }
+
+    #schedule-container {
+        width: calc(100vw - 300px);
+        background-color: $background-dark;
+    }
+}

@@ -1,0 +1,13 @@
+<div id="sidebar">
+  <div id="day-select">
+    <button id="friday-button" [ngClass]="{ 'selected': fridaySelected }" (click)="fridaySelected = !fridaySelected">Friday</button>
+    <button id="saturday-button" [ngClass]="{ 'selected': saturdaySelected }" (click)="saturdaySelected = !saturdaySelected">Saturday</button>
+    <button id="sunday-button" [ngClass]="{ 'selected': sundaySelected }" (click)="sundaySelected = !sundaySelected">Sunday</button>
+  </div>
+
+  <div id="filter-section-container">
+    <div class="filter-section" *ngFor="let section of filterSections">
+      <app-filter-section [(section)]="section"></app-filter-section>
+    </div>
+  </div>
+</div>

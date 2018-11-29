@@ -1,0 +1,41 @@
+@import '../../../assets/sass/variables';
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 30px;
+
+    #day-select {
+        display: flex;
+        flex-direction: row;
+
+        #friday-button {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        #sunday-button {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        button {
+            width: 33%;
+            padding: 8px 0px;
+            border: 1px solid $background-dark;
+            background-color: darken($text-color, 50%);
+            transition: background-color 0.2s, color 0.2s;
+            cursor: pointer;
+            color: $text-color;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.selected {
+                background-color: $text-color;
+                color: initial;
+            }
+        }
+    }
+}
