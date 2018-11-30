@@ -1,9 +1,9 @@
 <app-topbar></app-topbar>
 
-<div id="schedule-container">
+<div id="schedule-container" (scroll)="scheduleScroll($event)">
   <div id="days-container">
     <div class="day" *ngFor="let day of availableTimes">
-      <div [id]="day.day.toLowerCase() + '-label'" class="time" *ngFor="let time of getTimesForDay(day); index as i">
+      <div [id]="getLabelId(day, i)" class="time" *ngFor="let time of getTimesForDay(day); index as i">
         {{ showDayLabel(day, i) }}
       </div>
     </div>
