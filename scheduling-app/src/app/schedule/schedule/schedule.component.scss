@@ -1,6 +1,9 @@
 #schedule-container {
-    margin-top: 45px;
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+
     margin-left: 10px;
+    padding-top: 10px;
 
     display: flex;
 
