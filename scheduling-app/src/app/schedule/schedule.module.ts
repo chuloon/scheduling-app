@@ -6,18 +6,22 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SchedulePageComponent } from './schedule-page/schedule-page.component';
 import { FilterSectionComponent } from './filter-section/filter-section.component';
 import { FormsModule } from '@angular/forms';
+import { TopbarComponent } from './topbar/topbar.component';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   declarations: [
       ScheduleComponent,
       SidebarComponent,
       SchedulePageComponent,
-      FilterSectionComponent
+      FilterSectionComponent,
+      TopbarComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    MomentModule
   ]
 })
 export class ScheduleModule { }

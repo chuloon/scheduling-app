@@ -1,3 +1,21 @@
-<p>
-  schedule works!
-</p>
+<app-topbar></app-topbar>
+
+<div id="schedule-container">
+  <div id="days-container">
+    <div class="day" *ngFor="let day of availableTimes">
+      <div class="time" *ngFor="let time of getTimesForDay(day); index as i">
+        {{ showDayLabel(day, i) }}
+      </div>
+    </div>
+  </div>
+  <div id="times-container">
+    <div class="day" *ngFor="let day of availableTimes">
+      <div class="time" *ngFor="let time of getTimesForDay(day)">
+        {{ time }}
+      </div>
+    </div>
+  </div>
+  <div class="schedule-slot">
+
+  </div>
+</div>
