@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule, MatSlideToggleModule } from '@angular/material';
+import { OrderByPipe } from './pipes/orderBy';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    OrderByPipe
+  ],
   imports: [
     CommonModule,
     MatCheckboxModule,
@@ -11,7 +14,8 @@ import { MatCheckboxModule, MatSlideToggleModule } from '@angular/material';
   ],
   exports: [
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    OrderByPipe
   ]
 })
 export class SharedModule { }

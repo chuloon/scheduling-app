@@ -3,7 +3,7 @@
 <div id="schedule-container" (scroll)="scheduleScroll($event)">
   <div id="days-container">
     <div class="day" *ngFor="let day of availableTimes">
-      <div [id]="getLabelId(day, i)" class="time" *ngFor="let time of getTimesForDay(day); index as i">
+      <div [id]="getLabelId(day, i)" class="time label" *ngFor="let time of getTimesForDay(day); index as i">
         {{ showDayLabel(day, i) }}
       </div>
     </div>
@@ -15,7 +15,14 @@
       </div>
     </div>
   </div>
-  <div class="schedule-slot">
-
+  <div class="schedule-track" *ngFor="let track of scheduleData; index as i">
+    <div class="slot" *ngFor="let event of track.events" [ngStyle]="{ 'background-color': getSlotBackgroundColor(i) }">
+      <div class="slot-name">
+        {{ event.name }}
+      </div>
+      <div class="slot-time">
+        {{ event.startTime }} - {{ event.endTime }}
+      </div>
+    </div>
   </div>
 </div>
