@@ -1,5 +1,5 @@
 <div id="topbar-container">
   <div class="item">
-    <mat-slide-toggle [(ngModel)]="isTextMode" [labelPosition]="'before'">Text Mode</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="isTextMode" [labelPosition]="'before'" (ngModelChange)="modeChange($event)">Text Mode</mat-slide-toggle>
   </div>
 </div>

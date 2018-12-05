@@ -1,0 +1,9 @@
+<div id="text-schedule-container" *ngIf="showSchedule">
+  <div class="day" *ngFor="let day of scheduleDataFormatted">
+    <h4 class="day-label">{{ day.day }}</h4>
+    <div class="event" *ngFor="let event of day.events">
+      <div class="timespan">{{ event.startTime }} - {{ event.endTime }}</div>
+      <div class="name">{{ event.name }}</div>
+    </div>
+  </div>
+</div>

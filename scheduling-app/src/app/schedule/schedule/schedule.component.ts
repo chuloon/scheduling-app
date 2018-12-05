@@ -11,6 +11,16 @@ import { DayData } from '../classes/DayData';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
+  _isTextMode: boolean | string;
+  get isTextMode(): boolean | string {
+    return this._isTextMode;
+  };
+
+  set isTextMode(value: boolean | string) {
+    this._isTextMode = value;
+    localStorage.setItem("isTextMode", this._isTextMode.toString());
+  }
+
   trackColors = [
     "#cc0f00",
     "#E54100",
@@ -285,495 +295,504 @@ export class ScheduleComponent implements OnInit {
 
 
 
-    {
-      trackNumber: 1,
-      events: [
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament Signups",
-          startTime: "12:00 pm",
-          endTime: "12:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament",
-          startTime: "12:30 pm",
-          endTime: "4:30 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends ARAM Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends ARAM Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "Fortnite Check In",
-          startTime: "9:30 am",
-          endTime: "10:30 am",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "Fortnite",
-          startTime: "10:30 am",
-          endTime: "4:00 pm",
-          tags: [
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Hearthstone Check In",
-          startTime: "9:00 am",
-          endTime: "10:00 am",
-          tags: [
-            "signup",
-            "hearthstone"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Hearthstone",
-          startTime: "10:00 am",
-          endTime: "1:30 pm",
-          tags: [
-            "hearthstone"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 2,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "4:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament",
-          startTime: "6:00 pm",
-          endTime: "9:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Check In",
-          startTime: "2:00 pm",
-          endTime: "3:00 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Semifinals Round 1",
-          startTime: "3:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Semifinals Round 2",
-          startTime: "6:00 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Finals",
-          startTime: "9:30 pm",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "10:00 am",
-          endTime: "12:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Fortnite Flash Tournament",
-          startTime: "12:00 pm",
-          endTime: "4:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        },
-      ]
-    },
-    {
-      trackNumber: 3,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Overwatch Check In",
-          startTime: "4:30 pm",
-          endTime: "5:30 pm",
-          tags: [
-            "signup",
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 1",
-          startTime: "5:30 pm",
-          endTime: "7:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 2",
-          startTime: "7:30 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Finals Bo5",
-          startTime: "9:30 pm",
-          endTime: "12:00 am",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "Fortnite Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Fortnite Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "3:00 am",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "League of Legends 1v1 Flash Tournament Signups",
-          startTime: "11:00 am",
-          endTime: "1:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "League of Legends 1v1 Flash Tournament",
-          startTime: "1:30 pm",
-          endTime: "4:30 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-      ]
-    },
-    {
-      trackNumber: 1,
-      events: [
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament Signups",
-          startTime: "12:00 pm",
-          endTime: "12:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament",
-          startTime: "12:30 pm",
-          endTime: "4:30 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends ARAM Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends ARAM Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "Fortnite Check In",
-          startTime: "9:30 am",
-          endTime: "10:30 am",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "Fortnite",
-          startTime: "10:30 am",
-          endTime: "4:00 pm",
-          tags: [
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Hearthstone Check In",
-          startTime: "9:00 am",
-          endTime: "10:00 am",
-          tags: [
-            "signup",
-            "hearthstone"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Hearthstone",
-          startTime: "10:00 am",
-          endTime: "1:30 pm",
-          tags: [
-            "hearthstone"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 2,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "4:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament",
-          startTime: "6:00 pm",
-          endTime: "9:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Check In",
-          startTime: "2:00 pm",
-          endTime: "3:00 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Semifinals Round 1",
-          startTime: "3:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Semifinals Round 2",
-          startTime: "6:00 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends Finals",
-          startTime: "9:30 pm",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "10:00 am",
-          endTime: "12:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Fortnite Flash Tournament",
-          startTime: "12:00 pm",
-          endTime: "4:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        },
-      ]
-    },
-    {
-      trackNumber: 3,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Overwatch Check In",
-          startTime: "4:30 pm",
-          endTime: "5:30 pm",
-          tags: [
-            "signup",
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 1",
-          startTime: "5:30 pm",
-          endTime: "7:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 2",
-          startTime: "7:30 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Finals Bo5",
-          startTime: "9:30 pm",
-          endTime: "12:00 am",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "Fortnite Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "Fortnite Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "3:00 am",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "League of Legends 1v1 Flash Tournament Signups",
-          startTime: "11:00 am",
-          endTime: "1:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Sunday,
-          name: "League of Legends 1v1 Flash Tournament",
-          startTime: "1:30 pm",
-          endTime: "4:30 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-      ]
-    }
+    // {
+    //   trackNumber: 1,
+    //   events: [
+    //     {
+    //       day: Day.Friday,
+    //       name: "League of Legends Flash Tournament Signups",
+    //       startTime: "12:00 pm",
+    //       endTime: "12:30 pm",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "League of Legends Flash Tournament",
+    //       startTime: "12:30 pm",
+    //       endTime: "4:30 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "League of Legends ARAM Flash Tournament Signups",
+    //       startTime: "10:00 pm",
+    //       endTime: "12:00 am",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends ARAM Flash Tournament",
+    //       startTime: "12:00 am",
+    //       endTime: "2:00 am",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "Fortnite Check In",
+    //       startTime: "9:30 am",
+    //       endTime: "10:30 am",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "Fortnite",
+    //       startTime: "10:30 am",
+    //       endTime: "4:00 pm",
+    //       tags: [
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Hearthstone Check In",
+    //       startTime: "9:00 am",
+    //       endTime: "10:00 am",
+    //       tags: [
+    //         "signup",
+    //         "hearthstone"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Hearthstone",
+    //       startTime: "10:00 am",
+    //       endTime: "1:30 pm",
+    //       tags: [
+    //         "hearthstone"
+    //       ]
+    //     }
+    //   ]
+    // },
+    // {
+    //   trackNumber: 2,
+    //   events: [
+    //     {
+    //       day: Day.Friday,
+    //       name: "Fortnite Flash Tournament Signup",
+    //       startTime: "4:00 pm",
+    //       endTime: "6:00 pm",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Fortnite Flash Tournament",
+    //       startTime: "6:00 pm",
+    //       endTime: "9:30 pm",
+    //       tags: [
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Check In",
+    //       startTime: "2:00 pm",
+    //       endTime: "3:00 pm",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Semifinals Round 1",
+    //       startTime: "3:00 pm",
+    //       endTime: "6:00 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Semifinals Round 2",
+    //       startTime: "6:00 pm",
+    //       endTime: "9:00 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Finals",
+    //       startTime: "9:30 pm",
+    //       endTime: "2:00 am",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Fortnite Flash Tournament Signup",
+    //       startTime: "10:00 am",
+    //       endTime: "12:00 pm",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Fortnite Flash Tournament",
+    //       startTime: "12:00 pm",
+    //       endTime: "4:30 pm",
+    //       tags: [
+    //         "fortnite"
+    //       ]
+    //     },
+    //   ]
+    // },
+    // {
+    //   trackNumber: 3,
+    //   events: [
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Check In",
+    //       startTime: "4:30 pm",
+    //       endTime: "5:30 pm",
+    //       tags: [
+    //         "signup",
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Semifinals Bo3 Round 1",
+    //       startTime: "5:30 pm",
+    //       endTime: "7:00 pm",
+    //       tags: [
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Semifinals Bo3 Round 2",
+    //       startTime: "7:30 pm",
+    //       endTime: "9:00 pm",
+    //       tags: [
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Finals Bo5",
+    //       startTime: "9:30 pm",
+    //       endTime: "12:00 am",
+    //       tags: [
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "Fortnite Flash Tournament Signups",
+    //       startTime: "10:00 pm",
+    //       endTime: "12:00 am",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Fortnite Flash Tournament",
+    //       startTime: "12:00 am",
+    //       endTime: "3:00 am",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "League of Legends 1v1 Flash Tournament Signups",
+    //       startTime: "11:00 am",
+    //       endTime: "1:30 pm",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "League of Legends 1v1 Flash Tournament",
+    //       startTime: "1:30 pm",
+    //       endTime: "4:30 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //   ]
+    // },
+    // {
+    //   trackNumber: 1,
+    //   events: [
+    //     {
+    //       day: Day.Friday,
+    //       name: "League of Legends Flash Tournament Signups",
+    //       startTime: "12:00 pm",
+    //       endTime: "12:30 pm",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "League of Legends Flash Tournament",
+    //       startTime: "12:30 pm",
+    //       endTime: "4:30 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "League of Legends ARAM Flash Tournament Signups",
+    //       startTime: "10:00 pm",
+    //       endTime: "12:00 am",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends ARAM Flash Tournament",
+    //       startTime: "12:00 am",
+    //       endTime: "2:00 am",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "Fortnite Check In",
+    //       startTime: "9:30 am",
+    //       endTime: "10:30 am",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "Fortnite",
+    //       startTime: "10:30 am",
+    //       endTime: "4:00 pm",
+    //       tags: [
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Hearthstone Check In",
+    //       startTime: "9:00 am",
+    //       endTime: "10:00 am",
+    //       tags: [
+    //         "signup",
+    //         "hearthstone"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Hearthstone",
+    //       startTime: "10:00 am",
+    //       endTime: "1:30 pm",
+    //       tags: [
+    //         "hearthstone"
+    //       ]
+    //     }
+    //   ]
+    // },
+    // {
+    //   trackNumber: 2,
+    //   events: [
+    //     {
+    //       day: Day.Friday,
+    //       name: "Fortnite Flash Tournament Signup",
+    //       startTime: "4:00 pm",
+    //       endTime: "6:00 pm",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Fortnite Flash Tournament",
+    //       startTime: "6:00 pm",
+    //       endTime: "9:30 pm",
+    //       tags: [
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Check In",
+    //       startTime: "2:00 pm",
+    //       endTime: "3:00 pm",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Semifinals Round 1",
+    //       startTime: "3:00 pm",
+    //       endTime: "6:00 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Semifinals Round 2",
+    //       startTime: "6:00 pm",
+    //       endTime: "9:00 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "League of Legends Finals",
+    //       startTime: "9:30 pm",
+    //       endTime: "2:00 am",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Fortnite Flash Tournament Signup",
+    //       startTime: "10:00 am",
+    //       endTime: "12:00 pm",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Fortnite Flash Tournament",
+    //       startTime: "12:00 pm",
+    //       endTime: "4:30 pm",
+    //       tags: [
+    //         "fortnite"
+    //       ]
+    //     },
+    //   ]
+    // },
+    // {
+    //   trackNumber: 3,
+    //   events: [
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Check In",
+    //       startTime: "4:30 pm",
+    //       endTime: "5:30 pm",
+    //       tags: [
+    //         "signup",
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Semifinals Bo3 Round 1",
+    //       startTime: "5:30 pm",
+    //       endTime: "7:00 pm",
+    //       tags: [
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Semifinals Bo3 Round 2",
+    //       startTime: "7:30 pm",
+    //       endTime: "9:00 pm",
+    //       tags: [
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Friday,
+    //       name: "Overwatch Finals Bo5",
+    //       startTime: "9:30 pm",
+    //       endTime: "12:00 am",
+    //       tags: [
+    //         "overwatch"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Saturday,
+    //       name: "Fortnite Flash Tournament Signups",
+    //       startTime: "10:00 pm",
+    //       endTime: "12:00 am",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "Fortnite Flash Tournament",
+    //       startTime: "12:00 am",
+    //       endTime: "3:00 am",
+    //       tags: [
+    //         "signup",
+    //         "fortnite"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "League of Legends 1v1 Flash Tournament Signups",
+    //       startTime: "11:00 am",
+    //       endTime: "1:30 pm",
+    //       tags: [
+    //         "signup",
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //     {
+    //       day: Day.Sunday,
+    //       name: "League of Legends 1v1 Flash Tournament",
+    //       startTime: "1:30 pm",
+    //       endTime: "4:30 pm",
+    //       tags: [
+    //         "league-of-legends"
+    //       ]
+    //     },
+    //   ]
+    // }
   ];
 
   constructor() { }
 
   ngOnInit() {
+    this.getScheduleMode();
+  }
+
+  getScheduleMode = () => {
+    this.isTextMode = localStorage.getItem("isTextMode") == "true";
+  }
+
+  textModeChange = (event) => {
+    this.isTextMode = event;
   }
 
   getTimesForDay = (dayData: DayData) => {

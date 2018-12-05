@@ -1,27 +1,33 @@
-<app-topbar></app-topbar>
+<app-topbar [isTextMode]="isTextMode" (textModeChange)="textModeChange($event)"></app-topbar>
 
-<div id="schedule-container" (scroll)="scheduleScroll($event)">
-  <div id="days-container">
-    <div class="day-label" *ngFor="let day of availableTimes">
-      <div [id]="getLabelId(day, i)" class="time label" *ngFor="let time of getTimesForDay(day); index as i">
-        {{ showDayLabel(day, i) }}
+<div id="schedule-outer-container">
+  <div id="schedule-text-mode-container" [ngClass]="{ 'visible': isTextMode }">
+    <app-text-schedule [availableTimes]="availableTimes" [scheduleData]="scheduleData"></app-text-schedule>
+  </div>
+  
+  <div id="schedule-container" (scroll)="scheduleScroll($event)" [ngClass]="{ 'visible': !isTextMode }">
+    <div id="days-container">
+      <div class="day-label" *ngFor="let day of availableTimes">
+        <div [id]="getLabelId(day, i)" class="time label" *ngFor="let time of getTimesForDay(day); index as i">
+          {{ showDayLabel(day, i) }}
+        </div>
       </div>
     </div>
-  </div>
-  <div id="times-container">
-    <div [id]="day.day.toLowerCase()" class="day" *ngFor="let day of availableTimes">
-      <div class="time" *ngFor="let time of getTimesForDay(day)">
-        {{ time }}
+    <div id="times-container">
+      <div [id]="day.day.toLowerCase()" class="day" *ngFor="let day of availableTimes">
+        <div class="time" *ngFor="let time of getTimesForDay(day)">
+          {{ time }}
+        </div>
       </div>
     </div>
-  </div>
-  <div class="schedule-track" *ngFor="let track of scheduleData; index as i">
-    <div class="slot" *ngFor="let event of track.events; index as n" [ngStyle]="{ 'background-color': getSlotBackgroundColor(i), 'height': getSlotHeight(event), 'marginTop': getSlotMargin(track, n) + 'px' }">
-      <div class="slot-name">
-        {{ event.name }}
-      </div>
-      <div class="slot-time">
-        {{ event.startTime }} - {{ event.endTime }}
+    <div class="schedule-track" *ngFor="let track of scheduleData; index as i">
+      <div class="slot" *ngFor="let event of track.events; index as n" [ngStyle]="{ 'background-color': getSlotBackgroundColor(i), 'height': getSlotHeight(event), 'marginTop': getSlotMargin(track, n) + 'px' }">
+        <div class="slot-name">
+          {{ event.name }}
+        </div>
+        <div class="slot-time">
+          {{ event.startTime }} - {{ event.endTime }}
+        </div>
       </div>
     </div>
   </div>

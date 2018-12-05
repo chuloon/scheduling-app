@@ -1,0 +1,17 @@
+@import '../../../assets/sass/variables';
+
+#text-schedule-container {
+    overflow-x: hidden;
+    margin-left: 15px;
+    height: calc(100vh - 50px);
+
+    .event {
+        display: flex;
+        margin-bottom: 5px;
+        
+        .timespan {
+            color: darken($text-color, 30%);
+            width: 175px;
+        }
+    }
+}

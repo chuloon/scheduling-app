@@ -1,5 +1,19 @@
 @import '../../../assets/sass/variables';
 
+#schedule-outer-container {
+  display: flex;
+
+  #schedule-text-mode-container, #schedule-container {
+    width: 100%;
+    max-width: 0%;
+    transition: max-width 0.5s;
+
+    &.visible {
+      max-width: 100%;
+    }
+  }
+}
+
 #schedule-container {
   height: calc(100vh - 50px);
   overflow-y: scroll;

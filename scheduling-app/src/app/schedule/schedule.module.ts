@@ -8,6 +8,7 @@ import { FilterSectionComponent } from './filter-section/filter-section.componen
 import { FormsModule } from '@angular/forms';
 import { TopbarComponent } from './topbar/topbar.component';
 import { MomentModule } from 'ngx-moment';
+import { TextScheduleComponent } from './text-schedule/text-schedule.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { MomentModule } from 'ngx-moment';
       SidebarComponent,
       SchedulePageComponent,
       FilterSectionComponent,
-      TopbarComponent
+      TopbarComponent,
+      TextScheduleComponent
   ],
   imports: [
     CommonModule,
