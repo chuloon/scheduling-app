@@ -293,12 +293,12 @@ export class ScheduleComponent implements OnInit {
 
   getSlotHeight = (event: Event) => {
     const endTime = moment(event.endTime, "hh:mm a");
-    if (event.endTime == "12:00 am")
+    if (endTime.isBetween(moment("12:00 am", "hh:mm a"), moment("4:00 am", "hh:mm a"), null, "[]"))
       endTime.add(1, 'd');
 
     const startTime = moment(event.startTime, "hh:mm a");
     const minuteDuration = moment.duration(endTime.diff(startTime)).asMinutes();
-
+    
     return (minuteDuration * 2).toString() + "px";
   }
 
