@@ -4,7 +4,6 @@
   height: calc(100vh - 50px);
   overflow-y: scroll;
 
-  margin-left: 10px;
   padding-top: 10px;
 
   display: flex;
@@ -12,7 +11,8 @@
   #days-container {
     width: 75px;
 
-    .day {
+    .day,
+    .day-label {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -21,7 +21,7 @@
   }
 
   .time {
-    min-height: 30px;
+    min-height: 60px;
     font-size: 0.9em;
     color: darken($text-color, 40%);
     font-weight: bold;
@@ -37,21 +37,26 @@
     }
 
     &.sticky-helper {
-      height: calc(30px * 2);
+      height: calc(60px * 2);
     }
   }
 
   .schedule-track {
+    margin-right: 5px;
+
     .slot {
       width: 150px;
-      padding: 10px;
       font-size: 0.8em;
       border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 2px;
 
-      .slot-name {
+      .slot-name,
+      .slot-time {
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
+        padding: 5px 10px;
       }
     }
   }

@@ -1,4 +1,5 @@
 import { EventTrack } from './../classes/EventTrack';
+import { Event } from './../classes/Event';
 import { Day } from './../enums/Day';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
@@ -55,7 +56,7 @@ export class ScheduleComponent implements OnInit {
           day: Day.Friday,
           name: "League of Legends Flash Tournament",
           startTime: "12:30 pm",
-          endTime: "4:00 pm",
+          endTime: "4:30 pm",
           tags: [
             "league-of-legends"
           ]
@@ -78,7 +79,26 @@ export class ScheduleComponent implements OnInit {
           tags: [
             "league-of-legends"
           ]
-        }
+        },
+        {
+          day: Day.Saturday,
+          name: "Fortnite Check In",
+          startTime: "9:30 am",
+          endTime: "10:30 am",
+          tags: [
+            "signup",
+            "fortnite"
+          ]
+        },
+        {
+          day: Day.Saturday,
+          name: "Fortnite",
+          startTime: "10:30 am",
+          endTime: "4:00 pm",
+          tags: [
+            "fortnite"
+          ]
+        },
       ]
     },
     {
@@ -101,6 +121,43 @@ export class ScheduleComponent implements OnInit {
           endTime: "9:30 pm",
           tags: [
             "fortnite"
+          ]
+        },
+        {
+          day: Day.Saturday,
+          name: "League of Legends Check In",
+          startTime: "2:00 pm",
+          endTime: "3:00 pm",
+          tags: [
+            "signup",
+            "league-of-legends"
+          ]
+        },
+        {
+          day: Day.Saturday,
+          name: "League of Legends Semifinals Round 1",
+          startTime: "3:00 pm",
+          endTime: "6:00 pm",
+          tags: [
+            "league-of-legends"
+          ]
+        },
+        {
+          day: Day.Saturday,
+          name: "League of Legends Semifinals Round 2",
+          startTime: "6:00 pm",
+          endTime: "9:00 pm",
+          tags: [
+            "league-of-legends"
+          ]
+        },
+        {
+          day: Day.Saturday,
+          name: "League of Legends Finals",
+          startTime: "9:30 pm",
+          endTime: "2:00 am",
+          tags: [
+            "league-of-legends"
           ]
         }
       ]
@@ -146,334 +203,7 @@ export class ScheduleComponent implements OnInit {
           ]
         }
       ]
-    },
-    {
-      trackNumber: 0,
-      events: [
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament Signups",
-          startTime: "12:00 pm",
-          endTime: "12:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament",
-          startTime: "12:30 pm",
-          endTime: "4:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends ARAM Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends ARAM Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 1,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "4:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament",
-          startTime: "6:00 pm",
-          endTime: "9:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 2,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Overwatch Check In",
-          startTime: "4:30 pm",
-          endTime: "5:30 pm",
-          tags: [
-            "signup",
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 1",
-          startTime: "5:30 pm",
-          endTime: "7:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 2",
-          startTime: "7:30 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Finals Bo5",
-          startTime: "9:30 pm",
-          endTime: "12:00 am",
-          tags: [
-            "overwatch"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 0,
-      events: [
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament Signups",
-          startTime: "12:00 pm",
-          endTime: "12:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament",
-          startTime: "12:30 pm",
-          endTime: "4:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends ARAM Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends ARAM Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 1,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "4:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament",
-          startTime: "6:00 pm",
-          endTime: "9:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 2,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Overwatch Check In",
-          startTime: "4:30 pm",
-          endTime: "5:30 pm",
-          tags: [
-            "signup",
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 1",
-          startTime: "5:30 pm",
-          endTime: "7:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 2",
-          startTime: "7:30 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Finals Bo5",
-          startTime: "9:30 pm",
-          endTime: "12:00 am",
-          tags: [
-            "overwatch"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 0,
-      events: [
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament Signups",
-          startTime: "12:00 pm",
-          endTime: "12:30 pm",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends Flash Tournament",
-          startTime: "12:30 pm",
-          endTime: "4:00 pm",
-          tags: [
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "League of Legends ARAM Flash Tournament Signups",
-          startTime: "10:00 pm",
-          endTime: "12:00 am",
-          tags: [
-            "signup",
-            "league-of-legends"
-          ]
-        },
-        {
-          day: Day.Saturday,
-          name: "League of Legends ARAM Flash Tournament",
-          startTime: "12:00 am",
-          endTime: "2:00 am",
-          tags: [
-            "league-of-legends"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 1,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament Signup",
-          startTime: "4:00 pm",
-          endTime: "6:00 pm",
-          tags: [
-            "signup",
-            "fortnite"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Fortnite Flash Tournament",
-          startTime: "6:00 pm",
-          endTime: "9:30 pm",
-          tags: [
-            "fortnite"
-          ]
-        }
-      ]
-    },
-    {
-      trackNumber: 2,
-      events: [
-        {
-          day: Day.Friday,
-          name: "Overwatch Check In",
-          startTime: "4:30 pm",
-          endTime: "5:30 pm",
-          tags: [
-            "signup",
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 1",
-          startTime: "5:30 pm",
-          endTime: "7:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Semifinals Bo3 Round 2",
-          startTime: "7:30 pm",
-          endTime: "9:00 pm",
-          tags: [
-            "overwatch"
-          ]
-        },
-        {
-          day: Day.Friday,
-          name: "Overwatch Finals Bo5",
-          startTime: "9:30 pm",
-          endTime: "12:00 am",
-          tags: [
-            "overwatch"
-          ]
-        }
-      ]
-    },
+    }
   ];
 
   constructor() { }
@@ -540,7 +270,7 @@ export class ScheduleComponent implements OnInit {
 
   getDayHeightInPixels = (day: DayData) => {
     const times = this.getTimesForDay(day);
-    return times.length * 30;
+    return times.length * 60;
   }
 
   getHeightSum = (dayHeights: number[], index: number) => {
@@ -554,10 +284,53 @@ export class ScheduleComponent implements OnInit {
   }
 
   getSlotBackgroundColor = (slotNumber: number) => {
-    while(slotNumber >= this.trackColors.length) {
+    while (slotNumber >= this.trackColors.length) {
       slotNumber -= this.trackColors.length;
     }
 
     return this.trackColors[slotNumber];
+  }
+
+  getSlotHeight = (event: Event) => {
+    const endTime = moment(event.endTime, "hh:mm a");
+    if (event.endTime == "12:00 am")
+      endTime.add(1, 'd');
+
+    const startTime = moment(event.startTime, "hh:mm a");
+    const minuteDuration = moment.duration(endTime.diff(startTime)).asMinutes();
+
+    return (minuteDuration * 2).toString() + "px";
+  }
+
+  getSlotMargin = (track: EventTrack, n: number) => {
+    let endTime;
+    let startTime = moment(track.events[n].startTime, "hh:mm a");
+
+    if (n > 0) {
+      endTime = moment(track.events[n - 1].endTime, "hh:mm a");
+
+      if (track.events[n].day != track.events[n - 1].day) {
+        startTime.add(1, 'd');
+      }
+    }
+    else {
+      endTime = moment(this.getDayStartTime(track.events[n].day), "hh:mm a");
+    }
+
+
+    const minuteDifference = moment.duration(startTime.diff(endTime)).asMinutes();
+
+    return minuteDifference * 2;
+  }
+
+  getDayStartTime = (day: string) => {
+    let startTime = "";
+    this.availableTimes.forEach((time) => {
+      if (time.day == day) {
+        return startTime = time.start;
+      }
+    });
+
+    return startTime;
   }
 }
