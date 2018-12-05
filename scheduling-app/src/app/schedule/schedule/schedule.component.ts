@@ -297,6 +297,9 @@ export class ScheduleComponent implements OnInit {
       endTime.add(1, 'd');
 
     const startTime = moment(event.startTime, "hh:mm a");
+    if (startTime.isBetween(moment("12:00 am", "hh:mm a"), moment("4:00 am", "hh:mm a"), null, "[]"))
+      startTime.add(1, 'd');
+
     const minuteDuration = moment.duration(endTime.diff(startTime)).asMinutes();
     
     return (minuteDuration * 2).toString() + "px";
@@ -309,7 +312,7 @@ export class ScheduleComponent implements OnInit {
     if (n > 0) {
       endTime = moment(track.events[n - 1].endTime, "hh:mm a");
 
-      if (track.events[n].day != track.events[n - 1].day) {
+      if (track.events[n].day != track.events[n - 1].day && !endTime.isBetween(moment("12:00 am", "hh:mm a"), moment("4:00 am", "hh:mm a"), null, "[]")) {
         startTime.add(1, 'd');
       }
     }
