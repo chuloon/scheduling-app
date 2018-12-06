@@ -7,7 +7,7 @@
 
   <div id="filter-section-container">
     <div class="filter-section" *ngFor="let section of filterSections">
-      <app-filter-section [(section)]="section"></app-filter-section>
+      <app-filter-section [section]="section" (sectionChange)="checkBoxChange($event)"></app-filter-section>
     </div>
   </div>
 </div>

@@ -15,7 +15,6 @@ export class FilterSectionComponent implements OnInit {
 
   set section(value) {
     this._section = value;
-    this.sectionChange.emit(this._section);
   }
 
   constructor() { }
@@ -25,5 +24,9 @@ export class FilterSectionComponent implements OnInit {
 
   getId = (id: string) => {
     return id.replace(/ /g, '-');
+  }
+
+  checkboxChange = (item) => {
+    this.sectionChange.emit(this.section);
   }
 }

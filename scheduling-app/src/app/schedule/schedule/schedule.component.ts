@@ -1,7 +1,8 @@
+import { FilterService } from './../services/filter-service.service';
 import { EventTrack } from './../classes/EventTrack';
 import { Event } from './../classes/Event';
 import { Day } from './../enums/Day';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
 import { DayData } from '../classes/DayData';
 
@@ -11,6 +12,9 @@ import { DayData } from '../classes/DayData';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
+  @Input() selectedDay;
+  @Input() eventsToDisplay;
+
   _isTextMode: boolean | string;
   get isTextMode(): boolean | string {
     return this._isTextMode;
@@ -781,7 +785,7 @@ export class ScheduleComponent implements OnInit {
     // }
   ];
 
-  constructor() { }
+  constructor(private filterService: FilterService) { }
 
   ngOnInit() {
     this.getScheduleMode();

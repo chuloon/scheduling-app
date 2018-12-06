@@ -47,7 +47,6 @@ export class TextScheduleComponent implements OnInit {
     this.sortDayEvents();
     this.scheduleDataFormatted = this.scheduleDataCopy;
     this.showSchedule = true;
-    console.table(this.scheduleDataFormatted[0].events);
   }
 
   getDayIndex = (event): number => {
