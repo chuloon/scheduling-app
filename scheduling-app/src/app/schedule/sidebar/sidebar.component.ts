@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
   }
 
   checkBoxChange = (section) => {
-    this.filterService.filterSections[this.getSectionIndex(section.title)] = section;
+    this.filterService.changeSection([section]);
   }
 
   getSectionIndex = (title: string): number => {

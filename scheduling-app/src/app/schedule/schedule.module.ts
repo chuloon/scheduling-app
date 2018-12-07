@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { TopbarComponent } from './topbar/topbar.component';
 import { MomentModule } from 'ngx-moment';
 import { TextScheduleComponent } from './text-schedule/text-schedule.component';
+import { TagFilterPipe } from './pipes/tag-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TextScheduleComponent } from './text-schedule/text-schedule.component';
       SchedulePageComponent,
       FilterSectionComponent,
       TopbarComponent,
-      TextScheduleComponent
+      TextScheduleComponent,
+      TagFilterPipe
   ],
   imports: [
     CommonModule,

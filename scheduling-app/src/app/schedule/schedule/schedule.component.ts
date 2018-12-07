@@ -5,6 +5,8 @@ import { Day } from './../enums/Day';
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
 import { DayData } from '../classes/DayData';
+import { Subscription } from '../../../../node_modules/rxjs';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-schedule',
@@ -14,6 +16,16 @@ import { DayData } from '../classes/DayData';
 export class ScheduleComponent implements OnInit {
   @Input() selectedDay;
   @Input() eventsToDisplay;
+
+  dayArray = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ]
 
   _isTextMode: boolean | string;
   get isTextMode(): boolean | string {
@@ -52,6 +64,10 @@ export class ScheduleComponent implements OnInit {
       end: "5:30 pm"
     }
   ];
+  filterSubscription: Subscription;
+  filterSections;
+
+  filteredScheduleData: EventTrack[] = [];
   scheduleData: EventTrack[] = [
     {
       trackNumber: 1,
@@ -789,6 +805,52 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() {
     this.getScheduleMode();
+    this.listenForFilterChanges();
+  }
+
+  ngOnDestroy() {
+    this.filterSubscription.unsubscribe();
+  }
+
+  listenForFilterChanges = () => {
+    this.filterSubscription = this.filterService.filterSections.subscribe((item) => {
+      this.filterSections = item;
+
+      this.updateFilters();
+    });
+  }
+
+  updateFilters = () => {
+    this.filteredScheduleData = [];
+    const activeTags = this.getActiveTags(this.filterSections);
+
+    this.scheduleData.forEach((track, index) => {
+      let trackToAdd = {
+        trackNumber: index + 1,
+        events: []
+      };
+      track.events.forEach((event) => {
+        event.tags.forEach((tag) => {
+          if(_.includes(activeTags, tag)) {
+            trackToAdd.events.push(event);
+          }
+        });
+      });
+
+      this.filteredScheduleData.push(trackToAdd);
+    });
+  }
+
+  getActiveTags = (args) => {
+    const activeTags = [];
+
+    args.forEach((section) => {
+      section.items.forEach((item) => {
+        if(item.checked) activeTags.push(item.tag)
+      });
+    });
+
+    return activeTags;
   }
 
   getScheduleMode = () => {
@@ -894,8 +956,10 @@ export class ScheduleComponent implements OnInit {
   }
 
   getSlotMargin = (track: EventTrack, n: number) => {
+   
     let endTime;
     let startTime = moment(track.events[n].startTime, "hh:mm a");
+    let endDay;
 
     if (n > 0) {
       endTime = moment(track.events[n - 1].endTime, "hh:mm a");
@@ -903,15 +967,31 @@ export class ScheduleComponent implements OnInit {
       if (track.events[n].day != track.events[n - 1].day && !endTime.isBetween(moment("12:00 am", "hh:mm a"), moment("4:00 am", "hh:mm a"), null, "[]")) {
         startTime.add(1, 'd');
       }
+
+      endDay = track.events[n - 1].day;
     }
     else {
       endTime = moment(this.getDayStartTime(track.events[n].day), "hh:mm a");
+
+      if(_.indexOf(track.events[n].day) - 1 < 0) {
+        endDay = this.availableTimes[0].day;
+      }
+
+      debugger;
+      if (track.events[n].day != endDay) {
+        startTime.add(this.getDayDifference(track.events[n].day, endDay), 'd');
+      }
     }
 
-
     const minuteDifference = moment.duration(startTime.diff(endTime)).asMinutes();
-
     return minuteDifference * 2;
+  }
+
+  getDayDifference = (startDay, endDay) => {
+    const startIndex = _.indexOf(this.dayArray, startDay);
+    const endIndex = _.indexOf(this.dayArray, endDay);
+
+    return startIndex - endIndex;
   }
 
   getDayStartTime = (day: string) => {

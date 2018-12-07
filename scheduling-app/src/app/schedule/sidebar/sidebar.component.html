@@ -6,7 +6,7 @@
   </div>
 
   <div id="filter-section-container">
-    <div class="filter-section" *ngFor="let section of filterSections">
+    <div class="filter-section" *ngFor="let section of filterService.filterSectionSource.getValue()">
       <app-filter-section [section]="section" (sectionChange)="checkBoxChange($event)"></app-filter-section>
     </div>
   </div>
