@@ -6,5 +6,6 @@
   </div>
   
   <div id="schedule-container" [ngClass]="{ 'visible': !isTextMode }">
+    <div *ngFor="let day of formattedEvents | keyvalue">{{ day.key }}</div>
   </div>
 </div>
