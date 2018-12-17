@@ -85,4 +85,8 @@ export class ScheduleComponent implements OnInit {
   textModeChange = (event) => {
     this.isTextMode = event;
   }
+
+  getFormattedTime = (time) => {
+    return moment(time, "hh:mm a").format("h:mm a");
+  }
 }

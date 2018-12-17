@@ -4,10 +4,19 @@
   <div id="schedule-text-mode-container" [ngClass]="{ 'visible': isTextMode }">
     <!-- <app-text-schedule [availableTimes]="availableTimes" [scheduleData]="scheduleData"></app-text-schedule> -->
   </div>
-  
+
   <div id="schedule-container" [ngClass]="{ 'visible': !isTextMode }">
-    <div *ngFor="let day of formattedEvents | keyvalue">
+    <div class="day-container" *ngFor="let day of formattedEvents | keyvalue">
       <div class="day-title">{{ day.key }}</div>
+      <div class="time-slot-container">
+        <div class="time-slot" *ngFor="let timeSlot of day.value | keyvalue">
+          {{ getFormattedTime(timeSlot.key) }}
+
+          <div class="event-container">
+              <app-event-panel *ngFor="let event of timeSlot.value | keyvalue"></app-event-panel>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

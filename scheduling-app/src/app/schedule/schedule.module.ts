@@ -10,6 +10,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { MomentModule } from 'ngx-moment';
 import { TextScheduleComponent } from './text-schedule/text-schedule.component';
 import { TagFilterPipe } from './pipes/tag-filter.pipe';
+import { EventPanelComponent } from './event-panel/event-panel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TagFilterPipe } from './pipes/tag-filter.pipe';
       FilterSectionComponent,
       TopbarComponent,
       TextScheduleComponent,
-      TagFilterPipe
+      TagFilterPipe,
+      EventPanelComponent
   ],
   imports: [
     CommonModule,
