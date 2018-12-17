@@ -6,7 +6,11 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
   isSidebarExpanded: boolean = false;
 
-  constructor() { }
+  constructor() {
+    if(window.innerWidth > 768) {
+      this.isSidebarExpanded = true;
+    }
+   }
 
   setSidebarExpanded = (value) => {
     this.isSidebarExpanded = value;
