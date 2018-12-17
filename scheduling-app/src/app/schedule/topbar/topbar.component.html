@@ -1,4 +1,7 @@
 <div id="topbar-container">
+  <div class="nav-menu-toggle" (click)="sidebarService.setSidebarExpanded(true)">
+      <i class="material-icons" style="font-size: 36px; cursor: pointer;">menu</i>
+  </div>
   <div class="item">
     <mat-slide-toggle [(ngModel)]="isTextMode" [labelPosition]="'before'" (ngModelChange)="modeChange($event)">Text Mode</mat-slide-toggle>
   </div>

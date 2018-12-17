@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarService } from '../services/sidebar-service.service';
 
 @Component({
   selector: 'app-schedule-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchedulePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public sidebarService: SidebarService) { }
 
   ngOnInit() {
   }

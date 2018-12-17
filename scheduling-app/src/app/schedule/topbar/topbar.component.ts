@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { SidebarService } from '../services/sidebar-service.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,7 +10,7 @@ export class TopbarComponent implements OnInit {
   @Input() isTextMode: boolean;
   @Output() textModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor(public sidebarService: SidebarService) {
   }
 
   ngOnInit() {

@@ -19,60 +19,12 @@
   overflow-y: scroll;
 
   padding-top: 10px;
+  padding-left: 10px;
 
   display: flex;
   flex-direction: column;
 
-  #days-container {
-    width: 75px;
-
-    .day,
-    .day-label {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      padding-right: 10px;
-    }
-  }
-
-  .time {
-    min-height: 60px;
-    font-size: 0.9em;
-    color: darken($text-color, 40%);
-    font-weight: bold;
-    width: 75px;
-
-    &.label {
-      text-align: right;
-    }
-
-    &.sticky {
-      position: fixed;
-      top: 50px;
-    }
-
-    &.sticky-helper {
-      height: calc(60px * 2);
-    }
-  }
-
-  .schedule-track {
-    margin-right: 5px;
-
-    .slot {
-      width: 150px;
-      font-size: 0.8em;
-      border-radius: 5px;
-      overflow: hidden;
-      margin-bottom: 2px;
-
-      .slot-name,
-      .slot-time {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        padding: 5px 10px;
-      }
-    }
+  .day-title {
+    font-size: 1.5em;
   }
 }
