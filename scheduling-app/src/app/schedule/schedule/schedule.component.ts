@@ -48,7 +48,7 @@ export class ScheduleComponent implements OnInit {
   formatEvents = (events) => {
     events.forEach((event) => {
       const day = moment(event.startTime).format("dddd");
-      const time = moment(event.startTime).format("hh:mm a");
+      const time = moment(event.startTime).format("HH:mm a");
 
       //if startTime's day of week doesn't exist within formattedEvents
       if(!this.startTimeIsInFormattedEvents(day)) {
