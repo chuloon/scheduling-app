@@ -1,0 +1,33 @@
+@import '../../../assets/sass/variables';
+
+.event-container {
+    background-color: $text-color;
+    color: $background-dark;
+
+    padding: 10px 20px;
+    border-radius: 5px;
+    
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+    min-width: 225px;
+    max-width: 225px;
+    min-height: 55px;
+
+    font-size: 0.85em;
+
+    .event-time {
+        font-size: 0.75em;
+    }
+
+    .event-title {
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .event-container {
+        min-width: 80vw;
+        max-width: 80vw;
+    }
+}
