@@ -13,7 +13,7 @@
           <div class="time-slot" *ngFor="let timeSlot of day.value | keyvalue">
             {{ getFormattedTime(timeSlot.key) }}
 
-            <div class="event-container">
+            <div class="event-panel-container">
               <app-event-panel *ngFor="let event of timeSlot.value | keyvalue" [event]="event.value" [backgroundColor]="getBackgroundColor(event.value.tags)"></app-event-panel>
             </div>
           </div>

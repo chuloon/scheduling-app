@@ -39,9 +39,11 @@
         font-size: 1.1em;
         padding-top: 5px;
 
-        .event-container {
+        .event-panel-container {
           display: flex;
           flex-wrap: wrap;
+
+          margin-top: 5px;
         }
       }
     }
@@ -63,7 +65,7 @@
         .time-slot {
           text-align: center;
 
-          .event-container {
+          .event-panel-container {
             justify-content: center;
           }
         }
