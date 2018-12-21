@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   saturdaySelected: boolean = true;
   sundaySelected: boolean = true;
 
-  constructor(private filterService: FilterService) { }
+  constructor(public filterService: FilterService) { }
 
   ngOnInit() {
   }

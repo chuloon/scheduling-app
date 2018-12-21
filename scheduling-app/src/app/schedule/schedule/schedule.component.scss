@@ -31,6 +31,7 @@
     .day-title {
       font-size: 1.5em;
       width: 125px;
+      min-width: 125px;
     }
 
     .time-slot-container {
@@ -47,7 +48,7 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 430px) {
   #schedule-container {
     .day-container {
       flex-direction: column;

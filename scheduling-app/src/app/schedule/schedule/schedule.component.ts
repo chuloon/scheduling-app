@@ -28,11 +28,17 @@ export class ScheduleComponent implements OnInit {
     localStorage.setItem("isTextMode", this._isTextMode.toString());
   }
 
+  displaySchedule: boolean = false;
+
   events: Observable<any[]>;
   formattedEvents = {};
 
+  eventColors;
+  eventColorsObservable: Observable<any>;
+
   constructor(public db: AngularFirestore) {
     this.events = db.collection('/events').valueChanges();
+    this.eventColorsObservable = db.collection('/colors').doc('/tag-colors').valueChanges();
   }
 
   ngOnInit() {
@@ -42,10 +48,16 @@ export class ScheduleComponent implements OnInit {
   }
 
   setupSubscriptions = () => {
+    this.eventColorsObservable.subscribe(colors => this.setColors(colors));
     this.events.subscribe(events => this.formatEvents(events));
   }
 
+  setColors = (colors) => {
+    this.eventColors = colors;
+  }
+
   formatEvents = (events) => {
+    this.formattedEvents = {};
     events.forEach((event) => {
       const day = moment(event.startTime).format("dddd");
       const time = moment(event.startTime).format("HH:mm a");
@@ -68,6 +80,7 @@ export class ScheduleComponent implements OnInit {
 
     console.log("Firestore Call Completed");
     console.log(this.formattedEvents);
+    this.displaySchedule = true;
   }
 
   startTimeIsInFormattedEvents = (day): boolean => {
@@ -88,5 +101,16 @@ export class ScheduleComponent implements OnInit {
 
   getFormattedTime = (time) => {
     return moment(time, "hh:mm a").format("h:mm a");
+  }
+
+  getBackgroundColor = (tags: string[]) => {
+    let backgroundColor = "auto"
+
+    if(this.eventColors) {
+      tags.forEach((tag) => {
+        if(this.eventColors[tag]) backgroundColor = this.eventColors[tag];
+      });
+    }
+    return backgroundColor;
   }
 }

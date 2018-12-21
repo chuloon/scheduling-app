@@ -1,6 +1,6 @@
 <app-topbar [isTextMode]="isTextMode" (textModeChange)="textModeChange($event)"></app-topbar>
 
-<div id="schedule-outer-container">
+<div id="schedule-outer-container" *ngIf="displaySchedule">
   <div id="schedule-text-mode-container" [ngClass]="{ 'visible': isTextMode }">
     <!-- <app-text-schedule [availableTimes]="availableTimes" [scheduleData]="scheduleData"></app-text-schedule> -->
   </div>
@@ -14,7 +14,7 @@
             {{ getFormattedTime(timeSlot.key) }}
 
             <div class="event-container">
-              <app-event-panel *ngFor="let event of timeSlot.value | keyvalue" [event]="event.value"></app-event-panel>
+              <app-event-panel *ngFor="let event of timeSlot.value | keyvalue" [event]="event.value" [backgroundColor]="getBackgroundColor(event.value.tags)"></app-event-panel>
             </div>
           </div>
         </div>

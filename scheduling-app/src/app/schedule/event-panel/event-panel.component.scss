@@ -10,11 +10,17 @@
     margin-bottom: 10px;
     margin-right: 10px;
 
-    min-width: 225px;
-    max-width: 225px;
+    min-width: 220px;
+    max-width: 220px;
     min-height: 55px;
 
     font-size: 0.85em;
+
+    border-left: 7px solid rgba(0, 0, 0, 0);
+
+    &.signup {
+        border-left: 7px solid rgba(0, 0, 0, 0.3);
+    }
 
     .event-time {
         font-size: 0.75em;
@@ -25,7 +31,7 @@
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 430px) {
     .event-container {
         min-width: 80vw;
         max-width: 80vw;
