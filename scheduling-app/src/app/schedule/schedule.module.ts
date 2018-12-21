@@ -7,7 +7,6 @@ import { SchedulePageComponent } from './schedule-page/schedule-page.component';
 import { FilterSectionComponent } from './filter-section/filter-section.component';
 import { FormsModule } from '@angular/forms';
 import { TopbarComponent } from './topbar/topbar.component';
-import { MomentModule } from 'ngx-moment';
 import { TextScheduleComponent } from './text-schedule/text-schedule.component';
 import { TagFilterPipe } from './pipes/tag-filter.pipe';
 import { EventPanelComponent } from './event-panel/event-panel.component';
@@ -26,8 +25,7 @@ import { EventPanelComponent } from './event-panel/event-panel.component';
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule,
-    MomentModule
+    FormsModule
   ]
 })
 export class ScheduleModule { }
