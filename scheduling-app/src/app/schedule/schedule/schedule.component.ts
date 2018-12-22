@@ -1,11 +1,7 @@
 import { FilterService } from './../services/filter-service.service';
-import { EventTrack } from './../classes/EventTrack';
-import { Event } from './../classes/Event';
-import { Day } from './../enums/Day';
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
-import { DayData } from '../classes/DayData';
-import { Subscription, Observable } from '../../../../node_modules/rxjs';
+import { Observable } from '../../../../node_modules/rxjs';
 import * as _ from 'lodash';
 import { AngularFirestore } from '../../../../node_modules/angularfire2/firestore';
 
@@ -36,7 +32,7 @@ export class ScheduleComponent implements OnInit {
   eventColors;
   eventColorsObservable: Observable<any>;
 
-  constructor(public db: AngularFirestore) {
+  constructor(public db: AngularFirestore, public filterService: FilterService) {
     this.events = db.collection('/events').valueChanges();
     this.eventColorsObservable = db.collection('/colors').doc('/tag-colors').valueChanges();
   }
@@ -50,6 +46,13 @@ export class ScheduleComponent implements OnInit {
   setupSubscriptions = () => {
     this.eventColorsObservable.subscribe(colors => this.setColors(colors));
     this.events.subscribe(events => this.formatEvents(events));
+    this.createFilterSubscription();
+  }
+
+  createFilterSubscription = () => {
+    this.filterService.filterSections.subscribe((filter) => {
+      this.filterEvents(filter);
+    })
   }
 
   setColors = (colors) => {
@@ -112,5 +115,9 @@ export class ScheduleComponent implements OnInit {
       });
     }
     return backgroundColor;
+  }
+
+  filterEvents = (filter: any[]) => {
+    debugger;
   }
 }
